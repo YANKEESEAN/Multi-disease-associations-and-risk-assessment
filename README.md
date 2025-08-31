@@ -1,3 +1,117 @@
+# Multi-Model Fusion and Bayesian Network-Driven Prediction of Chronic Diseases and Their Comorbidity Analysis
+
+[![APMCM](https://img.shields.io/badge/Competition-APMCM-orange)](https://www.apmcm.org/)
+[![Python](https://img.shields.io/badge/Python-3.7%2B-blue)](https://www.python.org/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.0%2B-green)](https://scikit-learn.org/)
+
+This project, based on medical data for three highly prevalent chronic diseases—heart disease, stroke, and cirrhosis—constructs an end-to-end scientific solution. This solution encompasses data governance, precise prediction, comorbidity mechanism analysis, and the translation of findings into prevention and control strategies.
+
+## 📁 Project Structure
+
+```bash
+Project_Root/
+│
+├── 📁 Problem/                         # Competition Problem & Raw Data
+│   ├── 📊 cirrhosis.csv               # Cirrhosis Dataset
+│   ├── 📊 heart.csv                   # Heart Disease Dataset
+│   ├── 📊 stroke.csv                  # Stroke Dataset
+│   ├── 📄 Appendix_Dataset_Description.docx # Field description document for the original datasets
+│   └── 📄 Disease_Prediction_and_Big_Data_Analysis.pdf # Competition problem document
+│
+├── 📄 Paper.pdf                       # Complete solution paper, including problem analysis, model establishment, solution process, and conclusions
+├── 📊 Data_Analysis_and_Visualization.py  # Script for data preprocessing, descriptive statistics, hypothesis testing, and visualization
+├── 🤖 Disease_prediction_model.py         # Script for building, training, and evaluating disease prediction models (MLP, XGBoost, SVM, RF, etc.)
+├── 🔗 Disease_analysis.py                 # Script for multi-disease association analysis and comprehensive risk assessment (Bayesian Network, etc.)
+├── 📈 Visualizations/                     # Folder containing all generated analysis charts and result images
+│   ├── Multi_Disease_Risk_Probability.png
+│   ├── Multi_Disease_Age_Distribution.png
+│   ├── ... (Other visualizations)
+│   └── ...
+│
+└── 📖 README.md                       # This project description file
+```
+
+## 🎯 Project Objectives
+
+This project aims to address the following four core problems:
+
+1.  **Data Governance & Exploratory Data Analysis (EDA)**: Clean heterogeneous medical data, handle missing values, detect anomalies, and reveal key statistical characteristics and distribution patterns for each disease.
+2.  **Disease Prediction Model Construction**: Build high-precision machine learning prediction models (MLP, SVM, XGBoost) for heart disease, stroke, and cirrhosis, respectively.
+3.  **Comorbidity Mechanism Analysis**: Explore the associations between the three diseases, quantify comorbidity probabilities, and construct a multi-disease association network using a Bayesian Network.
+4.  **Public Health Strategy Recommendations**: Formulate a report with early screening and prevention strategy recommendations for high-risk groups based on the analysis results.
+
+## ⚙️ Environment Dependencies
+
+Python 3.7 or higher is recommended. Main dependencies are listed below:
+
+```bash
+pip install numpy pandas matplotlib seaborn scipy scikit-learn imbalanced-learn xgboost lightgbm shap pgmpy
+```
+
+*(Note: Added `pgmpy` for Bayesian Network functionality)*
+
+## 🚀 Quick Start
+
+### 1. Prepare Data
+Place the three raw data files (`stroke.csv`, `heart.csv`, `cirrhosis.csv`) into the `Problem/` folder within the project directory.
+
+### 2. Run the Analysis Pipeline
+It is recommended to execute the scripts in the following order to reproduce all results from the paper:
+
+**a. Data Exploration & Visualization**
+```bash
+python Data_Analysis_and_Visualization.py
+```
+*This script performs data preprocessing, generates descriptive statistics tables, and preliminary visualizations.*
+
+**b. Train & Evaluate Prediction Models**
+```bash
+python Disease_prediction_model.py
+```
+*This script trains various machine learning models for the three diseases, outputs performance evaluations (AUC, Accuracy, Recall, etc.), and saves the best models.*
+
+**c. Perform Multi-Disease Association Analysis**
+```bash
+python Disease_analysis.py
+```
+*This script analyzes common features among diseases, calculates comorbidity probabilities, and generates related comprehensive risk assessment charts.*
+
+### 3. View Results
+All generated analysis charts, ROC curves, confusion matrices, etc., will be automatically saved to the `Visualizations/` folder. Final model performance conclusions and comorbidity probability analysis can be found in `Paper.pdf`.
+
+## 📊 Model Performance
+
+| Disease | Best Model | AUC | Accuracy | Recall (Sensitivity) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Cirrhosis** | MLP | 0.9951 | 0.976 | 0.962 |
+| **Heart Disease** | SVM | 0.9443 | 0.880 | 0.870 |
+| **Stroke** | XGBoost | **0.9951** | 0.944 | 0.915 |
+
+## 📋 Key Findings
+
+-   **Comorbidity Risk**: The "Heart Disease + Cirrhosis" comorbidity has the highest probability (0.213), which is 20.5 times higher than the probability of having all three diseases simultaneously.
+-   **Core Hub Factor**: Cholesterol is a key hub factor for comorbidities. For every 1mmol/L increase, the comorbidity risk increases by 65%.
+-   **Age Stratification**: The comorbidity risk in the elderly group (≥60 years) is 2.63 times that of the youth group.
+-   **Model Robustness**: All models demonstrated strong robustness (AUC fluctuation <0.018) under feature perturbation tests (±5%).
+
+## 📝 Detailed Description
+
+-   **`Paper.pdf`**: Contains complete project details, including problem restatement, model assumptions, notation, detailed modeling and solution process, result analysis, and final conclusions and recommendation letter.
+-   **Python Scripts**: Each script is highly modularized and contains detailed comments for easy understanding and modification.
+    -   `Data_Analysis_and_Visualization.py`: Focuses on data cleaning and statistical testing.
+    -   `Disease_prediction_model.py`: Implements various machine learning algorithms and a rigorous model evaluation pipeline.
+    -   `Disease_analysis.py`: Focuses on multi-disease association analysis and Bayesian network construction.
+
+## 👥 Author
+
+*YANKEESEAN*
+
+## 📄 License
+
+This project is intended for academic research only. Data usage must comply with respective license agreements.
+
+---
+
 # 多模型融合与贝叶斯网络驱动的慢性病预测及其共病分析
 
 [![APMCM](https://img.shields.io/badge/Competition-APMCM-orange)](https://www.apmcm.org/)
